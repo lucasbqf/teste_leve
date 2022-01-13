@@ -34,11 +34,21 @@ class SalaryView(viewsets.ModelViewSet):
         for salary in Salary.objects.all():
             salaries.append(SalarySerializer(salary).data)
 
+
+        if(average_salary["salary__avg"]):
+            average_salary_value =  round(average_salary["salary__avg"],2)
+        else:
+            average_salary_value = 0
+        
+        if(average_discount["discount__avg"]):
+            average_discount_value = round(average_discount["discount__avg"],2)
+        else:
+            average_discount_value = 0
         data = {
             "lowest_salary":round(lowest,2),
             "biggest_salary":round(biggest,2),
-            "average_salary":round(average_salary["salary__avg"],2),
-            "average_discount":round(average_discount["discount__avg"],2),
+            "average_salary":average_salary_value,
+            "average_discount":average_discount_value,
             "salaries":salaries
             }
         return Response(data= data)
