@@ -3,3 +3,21 @@ user: 	admin
 email:	admin@admin.com
 pass: 	Admin123*
 	
+	
+para executar o projeto:
+necessario django e djangorestframework em virtual env ou instalado na maquina e python 3
+realizar acessar a pasta /api_leve e realizar via linha de comando e executar o comando:
+	"python manage.py migrate"
+após realizado executar o comando:
+	"python manage.py runserver"
+acessar o endereço http://127.0.0.1:8000/
+
+endpoints:
+	"User": "http://127.0.0.1:8000/User/",
+    "Salary": "http://127.0.0.1:8000/Salary/"
+
+
+o endpoint "User" informa todos os usuarios suas informações individuais de salario, (maior, menor e media salarial) e desconto.
+
+o endpoint "Salary" informa todos os salarios pagos, descontos e datas, alem da informação global de maior, menor e media salarial e desconto,
+dentre todos os Usuarios do sistema.
